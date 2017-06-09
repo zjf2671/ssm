@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.recipe.RecipeCountDAO">
+	<resultMap type="com.ssm.po.recipe.RecipeCountPO" id="recipeCountMap">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="recipecount" column="recipeCount" />
+		<result property="titlecount" column="titleCount" />
+	</resultMap>
+
+	<sql id="recipeCountColumns">
+		id,
+		name,
+		recipeCount,
+		titleCount
+	</sql>
+
+	<select id="findById" parameterType="com.ssm.po.recipe.RecipeCountPO" resultMap="recipeCountMap">
+		SELECT
+		<include refid="recipeCountColumns" />
+		FROM recipe_count
+		WHERE id = #{po.id}
+	</select>
+
+	<select id="findOfPage" resultMap="recipeCountMap">
+		SELECT
+		<include refid="recipeCountColumns" />
+		FROM recipe_count
+		<where>
+			<if test="po.name != null">
+				and name = #{po.name}
+			</if>
+			<if test="po.recipecount != null">
+				and recipeCount = #{po.recipecount}
+			</if>
+			<if test="po.titlecount != null">
+				and titleCount = #{po.titlecount}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY id desc
+			</otherwise>
+		</choose>
+		<if test="page != null">
+		limit #{page.limitStart},#{page.pageSize}
+		</if>
+	</select>
+	
+	<select id="countOfPage" resultType="java.lang.Integer">
+		SELECT
+		count(1) cnt
+		FROM recipe_count
+		<where>
+			<if test="po.name != null">
+				and name = #{po.name}
+			</if>
+			<if test="po.recipecount != null">
+				and recipeCount = #{po.recipecount}
+			</if>
+			<if test="po.titlecount != null">
+				and titleCount = #{po.titlecount}
+			</if>
+		</where>
+		<choose>
+			<!--<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>-->
+			<otherwise>
+				ORDER BY id desc
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAll" resultMap="recipeCountMap">
+		SELECT
+		<include refid="recipeCountColumns" />
+		FROM recipe_count
+		<where>
+			<if test="po.name != null">
+				and name = #{po.name}
+			</if>
+			<if test="po.recipecount != null">
+				and recipeCount = #{po.recipecount}
+			</if>
+			<if test="po.titlecount != null">
+				and titleCount = #{po.titlecount}
+			</if>
+		</where>
+		<choose>
+			<!--<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>-->
+			<otherwise>
+				ORDER BY id desc
+			</otherwise>
+		</choose>
+	</select>
+	
+<!-- insert -->
+
+	<insert id="insert" parameterType="com.ssm.po.recipe.RecipeCountPO">
+		INSERT INTO recipe_count(
+		name,
+		recipeCount,
+		titleCount
+		) VALUES (
+		#{name},
+		#{recipecount},
+		#{titlecount}
+		)
+		<selectKey keyProperty="id" resultType="java.lang.Integer">
+			select LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+
+	<update id="update">
+		UPDATE recipe_count 
+		<trim prefix="set" suffixOverrides=",">
+			<if test = "name != null">
+				name = #{name},
+			</if>
+			<if test = "recipecount != null">
+				recipeCount = #{recipecount},
+			</if>
+			<if test = "titlecount != null">
+				titleCount = #{titlecount}
+			</if>
+		</trim>
+		
+		WHERE id = #{id}
+	</update>
+
+	<delete id="delete">
+		delete from recipe_count where id = #{id}
+	</delete>
+
+	
+</mapper>
+	

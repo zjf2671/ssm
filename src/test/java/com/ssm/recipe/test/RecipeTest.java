@@ -1,4 +1,4 @@
-package ssm.recipe.test;
+package com.ssm.recipe.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

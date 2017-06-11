@@ -1,59 +1,128 @@
 <%@ page language="java" pageEncoding="UTF-8" %>
-<%@ include file="/page/admin/common/base.jsp" %>
-<!doctype html>
+<%@ include file="/page/common/base.jsp" %>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>日日煮后台管理系统</title>
-</head>
-<body>
-<div id="loginPage">
-        <div class="title"><img src="<%=basePath %>images/ddc.png" alt="">日日煮后台管理系统</div>
-        <form action="" method="post">
-            <div class="box">
-                <label>用户名:</label>
-                <input id="username" name="username" type="text">
+    <head>
+        <title>小型婚礼</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <link rel="stylesheet" href="css/index.css"/>
+        <script type="text/javascript" src="js/index.js"></script>
+    </head>
+    <body>
+        <!--[if ie 6]>
+        <style type="text/css">
+            .mask {position: absolute; height: 800px;}
+            .pop-box {_position: absolute;}
+        </style>
+        <![endif]-->
+		
+		<audio autoplay="autoplay"  loop="loop">
+			<source src="mp3/ghyjn.mp3" type="audio/mpeg">
+		      你的浏览器不支持audio标签
+		</audio>
+        <div class="box">
+            <!-- 场景一 -->
+            <div class="first-box">
+                <div class="first-horn">
+                    <img src="images/first_horn.jpg"/>
+                </div>
+                <div class="first-txt">
+                    <div class="txt1"><img src="images/first_txt1.jpg"/></div>
+                    <div class="txt2"><img src="images/first_txt2.jpg"/></div>
+                </div>
             </div>
-            <div class="box">
-                <label>密 &nbsp; 码:</label>
-                <input id="password" name="password" type="password">
-            </div>
-            <div  class="loginBtn"><a href="javascript:login();">登&nbsp;录</a></div>
-        </form>
-    </div>
-</div>
-</body>
-<script type="text/javascript">
-    $(function(){
-        $(document).keydown(function(e){
-            if(e.keyCode == 13) {
-                login();
-            }
-        });
-        if('${login}' == '0'){
-            window.top.location = '<%=basePath %>dologin.do';
-        }
-    });
 
-    function login(){
-        var username = $('#username').val();
-        var password = $('#password').val();
-        var url = '<%=basePath%>login.do?username=' + username + '&password=' + password;
-        $.ajax({
-            url: url,
-            async: false,
-            cache: false,
-            type: 'POST',
-            success: function (msg) {
-                if (msg.type == 'success') {
-                    location.href = "<%=basePath%>manager/index.do";
-                } else {
-                    alert(msg.content);
-                }
-            },
-            error: function () {
-                alert('系统错误');
-            }
-        });
-    }
-</script>
+            <!-- 场景二 -->
+            <div class="second-box">
+                <div class="second-people">
+                    <img src="images/second_people.jpg"/>
+                </div>
+                <div class="second-txt">
+                    <img src="images/second_txt.jpg"/>
+                </div>
+            </div>
+
+            <!-- 场景三 -->
+            <div class="three-box">
+                <div class="three-img">
+                    <img src="images/three_img.jpg"/>
+                </div>
+            </div>
+
+            <!-- 场景四 -->
+            <div class="fore-box">
+                <div class="fore-img">
+                    <img src="images/fore_img.jpg"/>
+                </div>
+            </div>
+
+            <!-- 场景五 -->
+            <div class="five-box">
+                <div class="five-img">
+                    <img src="images/five_img.jpg"/>
+                    <div class="u-enter">进入婚礼</div>
+                </div>
+            </div>
+
+            <!-- 场景六 -->
+            <div class="six-box">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- 场景七 -->
+            <div class="seven-box">
+                <div class="clickMe">点我送祝福</div>
+                <div class="seven-content">
+                    <div class="note-a1"></div>
+                    <div class="note-a2"></div>
+                    <div class="note-a3"></div>
+                    <div class="note-a4"></div>
+                    <div class="note-a5"></div>
+                    <div class="note-a6"></div>
+                    <div class="note-a7"></div>
+                    <div class="note-a8"></div>
+                    <div class="note-a9"></div>
+                    <div class="note-a10"></div>
+                    <div class="note-a11"></div>
+                    <div class="note-a12"></div>
+                    <div class="note-1">一定要幸福哦~</div>
+                    <div class="note-2">祝你们白头偕老！</div>
+                    <div class="note-3">早生贵子~</div>
+                    <div class="note-4">新婚快乐~</div>
+                    <div class="note-5">生个宝宝认我做干妈！</div>
+                    <div class="note-6">喜结良缘O(∩_∩)O哈哈哈~</div>
+                    <div class="note-1">一定要幸福哦~</div>
+                    <div class="note-2">祝你们白头偕老！</div>
+                    <div class="note-3">早生贵子~</div>
+                    <div class="note-4">新婚快乐~</div>
+                    <div class="note-5">生个宝宝认我做干妈！</div>
+                    <div class="note-6">喜结良缘O(∩_∩)O哈哈哈~</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 遮罩层 -->
+        <div class="mask"></div>
+        <div class="pop-box">
+            <h1>送上祝福语</h1>
+            <textarea id="write">写上您的祝福吧~</textarea>
+            <div class="u-sure" id="uSure">确定</div>
+        </div>
+
+    </body>
 </html>

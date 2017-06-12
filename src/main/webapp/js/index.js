@@ -212,13 +212,11 @@ $(function(){
             if(_writeVal != "送上您的祝福吧~"){
                 var _div = '<div class="note-'+_randomNum+'">'+_writeVal+'</div>';
                 $sevenContent.append(_div); /* 如果输入祝福语，将此标签添加的尾部 */
-                //defineSevenDiv($sevenContent.find("div:last"));
                 var $own = $sevenContent.find("div:last")
+                defineSevenDiv($own);
                 var _obj = defineRandom();
-                var classes = "note-"+_randomNum;
-                var style = "transform:rotate("+_obj.rotate+"deg) "+"left:"+_obj.left+"px "+"top:"+_obj.top+"px";
-                $own.css({"transform":"rotate("+_obj.rotate+"deg)"}); /* 设置随机旋转值 */
-                $own.animate({left: _obj.left+"px",top: _obj.top+"px"}); /* 随机排布 */
+                var classes = $own.attr('class');
+                var style = $own.attr('style');
                 $popBox.animate({top: "-300px"},function(){
                     $mask.fadeOut();
                     draggableNote(); /* 可拖动卡片，给新添加的标签赋予拖动功能 */

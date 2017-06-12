@@ -26,6 +26,12 @@ public class GreetingsServiceImpl implements GreetingsService {
 		 greettingsDAO.insert(greetingsPO);
 		 return greetingsPO;
 	}
+
+	@Override
+	public GreetingsPO update(GreetingsPO greetingsPO) {
+		greettingsDAO.update(greetingsPO);
+		return greetingsPO;
+	}
 	
 	
 

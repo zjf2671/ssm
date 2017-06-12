@@ -88,30 +88,9 @@
             <div class="seven-box">
                 <div class="clickMe">点我送祝福</div>
                 <div class="seven-content">
-                    <div class="note-a1"></div>
-                    <div class="note-a2"></div>
-                    <div class="note-a3"></div>
-                    <div class="note-a4"></div>
-                    <div class="note-a5"></div>
-                    <div class="note-a6"></div>
-                    <div class="note-a7"></div>
-                    <div class="note-a8"></div>
-                    <div class="note-a9"></div>
-                    <div class="note-a10"></div>
-                    <div class="note-a11"></div>
-                    <div class="note-a12"></div>
-                    <div class="note-1">一定要幸福哦~</div>
-                    <div class="note-2">祝你们白头偕老！</div>
-                    <div class="note-3">早生贵子~</div>
-                    <div class="note-4">新婚快乐~</div>
-                    <div class="note-5">生个宝宝认我做干妈！</div>
-                    <div class="note-6">喜结良缘O(∩_∩)O哈哈哈~</div>
-                    <div class="note-1">一定要幸福哦~</div>
-                    <div class="note-2">祝你们白头偕老！</div>
-                    <div class="note-3">早生贵子~</div>
-                    <div class="note-4">新婚快乐~</div>
-                    <div class="note-5">生个宝宝认我做干妈！</div>
-                    <div class="note-6">喜结良缘O(∩_∩)O哈哈哈~</div>
+                 <c:forEach items="${greetings }" var="greet" varStatus="status">
+                    <div id="${greet.id}" class="${greet.classes}" style="${greet.style}">${greet.text}</div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

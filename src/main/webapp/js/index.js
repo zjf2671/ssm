@@ -139,7 +139,7 @@ $(function(){
         $sixBox.hide();
         $sevenBox.fadeIn(1000);
         $sevenDiv.each(function(){
-            defineSevenDiv($(this));
+            //defineSevenDiv($(this));
         })
 
         function defineSevenDiv($own){
@@ -173,6 +173,12 @@ $(function(){
                 stop: function(){
                     var _obj = defineRandom();
                     $(this).css({"transform":"rotate("+_obj.rotate+"deg)","cursor": "pointer"}); /* 停止拖动，旋转为随机的 */
+                    var id = $(this).attr('id');
+                    var classes = $(this).attr('class');
+                    var style =$(this).attr('style');
+                    var text =$(this).text();
+                    var $own = $(this);
+                    sendGreet($own, id,classes,style,text);
                 }
             })
         }
@@ -206,15 +212,44 @@ $(function(){
             if(_writeVal != "送上您的祝福吧~"){
                 var _div = '<div class="note-'+_randomNum+'">'+_writeVal+'</div>';
                 $sevenContent.append(_div); /* 如果输入祝福语，将此标签添加的尾部 */
-                defineSevenDiv($sevenContent.find("div:last"));
+                //defineSevenDiv($sevenContent.find("div:last"));
+                var $own = $sevenContent.find("div:last")
+                var _obj = defineRandom();
+                var classes = "note-"+_randomNum;
+                var style = "transform:rotate("+_obj.rotate+"deg) "+"left:"+_obj.left+"px "+"top:"+_obj.top+"px";
+                $own.css({"transform":"rotate("+_obj.rotate+"deg)"}); /* 设置随机旋转值 */
+                $own.animate({left: _obj.left+"px",top: _obj.top+"px"}); /* 随机排布 */
                 $popBox.animate({top: "-300px"},function(){
                     $mask.fadeOut();
                     draggableNote(); /* 可拖动卡片，给新添加的标签赋予拖动功能 */
                 });
+                sendGreet($own,null,classes,style,_writeVal);
             }else{
                 alert("请输入祝福语！");
             }
         })
+        
+        
+        function sendGreet($own,id,classes,style,text){
+        	var url = "greet/update.do?id="+id+"&classes="+classes+"&style="+style+"&text="+text;
+        	if(id == null){
+        		url = "greet/save.do?classes="+classes+"&style="+style+"&text="+text;
+        	}
+        	$.ajax({
+                url: url,
+                type:"post",
+                dataType:"json",
+                success:function(msg){
+                    if(msg.code == 0) {
+                        //location.reload();
+                    	$own.attr("id",msg.data.id);
+                    }
+                },error:function(){
+                    //zrkj.alert("网络故障,删除失败!");
+                }
+           });
+        	
+        }
 
 
     }

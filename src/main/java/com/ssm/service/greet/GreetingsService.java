@@ -10,4 +10,6 @@ public interface GreetingsService {
 
 	public GreetingsPO insert(GreetingsPO greetingsPO);
 
+	public GreetingsPO update(GreetingsPO greetingsPO);
+
 }

@@ -35,5 +35,14 @@ public class GreetController extends BaseSpringController {
 		result.setData(greetingsPO);
 		return result;
 	}
+	
+	@RequestMapping("/update")
+	@ResponseBody
+	public JsonResult<GreetingsPO> update(GreetingsPO greetingsPO){
+		JsonResult<GreetingsPO> result = new JsonResult<GreetingsPO>();
+		greetingsService.update(greetingsPO);
+		result.setData(greetingsPO);
+		return result;
+	}
 
 }

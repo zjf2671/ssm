@@ -214,7 +214,6 @@ $(function(){
                 $sevenContent.append(_div); /* 如果输入祝福语，将此标签添加的尾部 */
                 var $own = $sevenContent.find("div:last")
                 defineSevenDiv($own);
-                var _obj = defineRandom();
                 var classes = $own.attr('class');
                 var style = $own.attr('style');
                 $popBox.animate({top: "-300px"},function(){

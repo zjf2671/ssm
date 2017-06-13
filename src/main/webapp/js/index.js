@@ -213,9 +213,15 @@ $(function(){
                 var _div = '<div class="note-'+_randomNum+'">'+_writeVal+'</div>';
                 $sevenContent.append(_div); /* 如果输入祝福语，将此标签添加的尾部 */
                 var $own = $sevenContent.find("div:last")
-                defineSevenDiv($own);
+                //defineSevenDiv($own);
+                
+                var _obj = defineRandom();
+                $own.css({"transform":"rotate("+_obj.rotate+"deg)"}); /* 设置随机旋转值 */
+                $own.animate({left: _obj.left+"px",top: _obj.top+"px"}); /* 随机排布 */
+                
                 var classes = $own.attr('class');
-                var style = $own.attr('style');
+                var style = "transform:rotate("+_obj.rotate+"deg);"+" left:"+_obj.left+"px;"+" top:"+ _obj.top+"px";
+                
                 $popBox.animate({top: "-300px"},function(){
                     $mask.fadeOut();
                     draggableNote(); /* 可拖动卡片，给新添加的标签赋予拖动功能 */

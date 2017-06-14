@@ -1,5 +1,6 @@
 package com.ssm.service.greet.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class GreetingsServiceImpl implements GreetingsService {
 
 	@Override
 	public GreetingsPO insert(GreetingsPO greetingsPO) {
+		 greetingsPO.setCreateTime(new Date());
 		 greettingsDAO.insert(greetingsPO);
 		 return greetingsPO;
 	}

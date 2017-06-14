@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50529
 File Encoding         : 65001
 
-Date: 2017-06-13 18:17:05
+Date: 2017-06-14 10:23:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,9 +23,9 @@ CREATE TABLE `greetings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `classes` varchar(255) DEFAULT NULL,
   `style` varchar(255) DEFAULT NULL,
-  `text` varchar(255) DEFAULT NULL,
+  `text` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of greetings
@@ -37,18 +37,15 @@ INSERT INTO `greetings` VALUES ('4', 'note-4 ui-draggable', 'left: 390.27px; top
 INSERT INTO `greetings` VALUES ('5', 'note-5 ui-draggable', 'left: 648.16px; top: 41.16px; z-index: 99; cursor: pointer; transform: rotate(11deg);', '生个宝宝认我做干妈！');
 INSERT INTO `greetings` VALUES ('6', 'note-6 ui-draggable ui-draggable-dragging', 'left: 49.6397px; top: 424.64px; z-index: 99; cursor: pointer; transform: rotate(10deg);', '喜结良缘O(∩_∩)O哈哈哈~');
 INSERT INTO `greetings` VALUES ('8', 'note-4 ui-draggable ui-draggable-dragging', 'transform: rotate(20deg); left: 351.812px; top: 169.812px; z-index: 99; cursor: pointer;', '哎呦，不错哦！！');
-INSERT INTO `greetings` VALUES ('20', 'note-6 ui-draggable ui-draggable-dragging', 'transform: rotate(-14deg); left: 277px; top: 67px; z-index: 99; cursor: pointer;', 'egte');
-INSERT INTO `greetings` VALUES ('23', 'note-5 ui-draggable ui-draggable-dragging', 'left: 47.2956px; top: 176.296px; z-index: 99; cursor: pointer; transform: rotate(-17deg);', 't5y45y4');
-INSERT INTO `greetings` VALUES ('25', 'note-2 ui-draggable ui-draggable-dragging', 'left: 178.576px; top: 116.576px; z-index: 99; cursor: pointer; transform: rotate(3deg);', 'rqrqr');
-INSERT INTO `greetings` VALUES ('26', 'note-2 ui-draggable ui-draggable-dragging', 'left: 138.637px; top: 19.6374px; z-index: 99; cursor: pointer; transform: rotate(6deg);', '5435');
-INSERT INTO `greetings` VALUES ('27', 'note-5 ui-draggable ui-draggable-dragging', 'left: 14.2409px; top: 335.241px; z-index: 99; cursor: pointer; transform: rotate(11deg);', '恭喜恭喜');
-INSERT INTO `greetings` VALUES ('28', 'note-3 ui-draggable ui-draggable-dragging', 'left: 193.36px; top: 389.36px; z-index: 99; cursor: pointer; transform: rotate(11deg);', 'wrwr');
-INSERT INTO `greetings` VALUES ('29', 'note-3 ui-draggable ui-draggable-dragging', 'left: 297.999px; top: 262.999px; z-index: 99; cursor: pointer; transform: rotate(15deg);', 'erwre');
-INSERT INTO `greetings` VALUES ('30', 'note-1 ui-draggable ui-draggable-dragging', 'left: 367px; top: 36px; z-index: 99; cursor: pointer; transform: rotate(-5deg);', 'tqtqt');
-INSERT INTO `greetings` VALUES ('31', 'note-5 ui-draggable ui-draggable-dragging', 'left: 283px; top: 377px; z-index: 99; cursor: pointer; transform: rotate(12deg);', 'tqtqtq');
-INSERT INTO `greetings` VALUES ('32', 'note-5 ui-draggable ui-draggable-dragging', 'left: 97.9092px; top: 274.909px; z-index: 99; cursor: pointer; transform: rotate(4deg);', 'rqrq');
-INSERT INTO `greetings` VALUES ('33', 'note-1 ui-draggable ui-draggable-dragging', 'left: 374px; top: 444px; z-index: 99; cursor: pointer; transform: rotate(-3deg);', 'rqrqq');
-INSERT INTO `greetings` VALUES ('34', 'note-1 ui-draggable ui-draggable-dragging', 'z-index: 99; transform: rotate(-15deg); cursor: pointer; left: 17.1652px; top: 62.4621px;', '用途');
-INSERT INTO `greetings` VALUES ('35', 'note-6 ui-draggable ui-draggable-dragging', 'left: 661.36px; top: 221.36px; transform: rotate(16deg); z-index: 99; cursor: pointer;', '这个好');
-INSERT INTO `greetings` VALUES ('36', 'note-6 ui-draggable ui-draggable-dragging', 'transform: rotate(18deg); left: 551.792px; top: 413.792px; z-index: 99; cursor: pointer;', 'rwwrwr');
-INSERT INTO `greetings` VALUES ('37', 'note-2 ui-draggable ui-draggable-dragging', 'transform: rotate(4deg); left: 181.14px; top: 208.14px; z-index: 99; cursor: pointer;', 'rqrqrq');
+INSERT INTO `greetings` VALUES ('43', 'note-6', 'transform:rotate(13deg); left:491px; top:108px', 'rqrqrq');
+INSERT INTO `greetings` VALUES ('44', 'note-6', 'transform:rotate(5deg); left:422px; top:222px', 'rqrqq');
+INSERT INTO `greetings` VALUES ('45', 'note-2', 'transform:rotate(8deg); left:149px; top:237px', 'rqrrqrq');
+INSERT INTO `greetings` VALUES ('46', 'note-1', 'transform:rotate(17deg); left:427px; top:377px', 'rqrqr');
+INSERT INTO `greetings` VALUES ('47', 'note-2', 'transform:rotate(12deg); left:394px; top:66px', 'rwrrw');
+INSERT INTO `greetings` VALUES ('48', 'note-6', 'transform:rotate(-8deg); left:509px; top:212px', 'rwrw');
+INSERT INTO `greetings` VALUES ('49', 'note-1', 'transform:rotate(-15deg); left:389px; top:152px', 'rqrqr');
+INSERT INTO `greetings` VALUES ('50', 'note-1', 'transform:rotate(11deg); left:669px; top:328px', 'rqrq');
+INSERT INTO `greetings` VALUES ('51', 'note-4', 'transform:rotate(17deg); left:620px; top:424px', 'rqrq');
+INSERT INTO `greetings` VALUES ('52', 'note-5', 'transform:rotate(6deg); left:573px; top:388px', 'rqrq');
+INSERT INTO `greetings` VALUES ('53', 'note-3', 'transform:rotate(-3deg); left:407px; top:46px', 'rq');
+INSERT INTO `greetings` VALUES ('54', 'note-3', 'transform:rotate(20deg); left:36px; top:54px', 'r');

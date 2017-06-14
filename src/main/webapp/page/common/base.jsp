@@ -19,6 +19,7 @@
 
 <script src="<%=basePath%>js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/jquery-ui-1.10.2.custom.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<%=basePath%>css/index.css" />
 <style type="text/css">
     body {
         font-family: "微软雅黑";

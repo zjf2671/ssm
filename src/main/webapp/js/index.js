@@ -1,7 +1,7 @@
 /**
- * User: wei ya
- * Date: 14-6-12
- * Time: 下午8:08
+ * User: harry.zhang
+ * Date: 6-6-17
+ * Time: 中午12:08
  * 小型婚礼
  */
 $(function(){
@@ -24,7 +24,7 @@ $(function(){
         sixDivHeight = $sixDiv.height(), /* 场景六里面小块div的高度 */
         sixBoxWidth = $sixBox.width(), /* 场景六宽度 */
         sixBoxHeight = $sixBox.height(),/* 场景六高度 */
-        $sevenBox = $(".seven-box");
+        $sevenBox = $(".seven-box2");
 
     /* 场景一 */
     $firstHorn.animate({left: 0},1000);
@@ -136,6 +136,7 @@ $(function(){
         $sevenContent = $(".seven-content");
 
     function scene7(){
+    	loadGreetList();
         $sixBox.hide();
         $sevenBox.fadeIn(1000);
         $sevenDiv.each(function(){
@@ -231,6 +232,30 @@ $(function(){
                 alert("请输入祝福语！");
             }
         })
+        
+        /* 加载数据 */
+        function loadGreetList(){
+        	var url = "greet/greetAllList.do";
+        	$.ajax({
+                url: url,
+                type:"post",
+                dataType:"json",
+                success:function(msg){
+                    if(msg.code == 0) {
+                        //location.reload();
+                    	$("#greetlist").html('');
+                    	$.each(msg.data, function(i,item){  
+                    	 	$("#greetlist").html($("#greetlist").html() +"<div id='"+item.id+"' class='"+item.classes+"' style='"+item.style+"'>"+item.text+"</div>");  
+                    	});
+                    }
+                },error:function(){
+                    alert("网络故障,请稍后重试");
+                }
+           });
+        }
+        
+        //重复执行loadGreetList方法 
+        var t1 = window.setInterval(loadGreetList,1000); 
         
         
         function sendGreet($own,id,classes,style,text){

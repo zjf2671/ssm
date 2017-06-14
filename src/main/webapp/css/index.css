@@ -1,5 +1,5 @@
 .box {position: relative; width: 960px; height: 810px; margin: 10px auto; overflow: hidden;}
-.second-box,.five-box,.six-box,.seven-box {display: none;}
+.second-box,.five-box,.six-box,.seven-box,.seven-box2 {display: none;}
 /* 场景一css */
 .first-horn {position: absolute; top: 30px; left: -422px;}
 .first-txt {position: absolute; top: 60px; display: none;}
@@ -20,6 +20,7 @@
 .six-box {position: relative; width: 960px; height: 800px; overflow: hidden;}
 .six-box div {position: absolute; width: 100px; height: 100px; background: url("../images/six_center_img.jpg") no-repeat;}
 /* 场景七 */
+.seven-box2 {position: relative; width: 958px; height: 800px; background: /* url("../images/seven_bg.jpg") */ no-repeat top center; border: 1px solid #F4D938; overflow: hidden;}
 .seven-box {position: relative; width: 958px; height: 800px; background: url("../images/seven_bg.jpg") no-repeat top center; border: 1px solid #F4D938; overflow: hidden;}
 .clickMe {position: absolute; left: 0; bottom: 0; width: 229px; height: 233px; cursor: pointer; text-indent: -99999px; background: url("../images/clickMe.jpg") no-repeat; z-index: 9999;}
 .seven-content {position: relative; width: 790px; height: 540px; margin: 20px auto; background: #f67b93; border-radius: 50px;}

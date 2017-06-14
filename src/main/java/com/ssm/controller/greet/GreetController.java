@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,12 +21,20 @@ public class GreetController extends BaseSpringController {
 	private GreetingsService greetingsService;
 	
 	@RequestMapping("/greetList")
+	public String findGreetList(Model model){
+		List<GreetingsPO> greetings = greetingsService.findList();
+		model.addAttribute("greetings", greetings);
+		return "greet/greets";
+	}
+	
+	@RequestMapping("/greetAllList")
 	@ResponseBody
 	public JsonResult<List<GreetingsPO>> findGreetList(){
 		JsonResult<List<GreetingsPO>> result = new JsonResult<List<GreetingsPO>>();
 		result.setData(greetingsService.findList());
 		return result;
 	}
+	
 	
 	@RequestMapping("/save")
 	@ResponseBody

@@ -1,11 +1,12 @@
 package com.ssm.po.greet;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 
  * @author harry.zhang
- * @date 2017-06-11 12:03:35
+ * @date 2017-06-14 19:08:01
  */
 public class GreetingsPO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +27,11 @@ public class GreetingsPO implements Serializable {
 	 * 
 	 */
 	private String text;
+
+	/**
+	 * 
+	 */
+	private Date createTime;
 
 	public Integer getId() {
 		return id;
@@ -85,6 +91,22 @@ public class GreetingsPO implements Serializable {
 	 */
 	public void setText(String text) {
 		this.text = text;
+	}
+
+	/**
+	 * 
+	 * @return 
+	 */
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	 * 
+	 * @param createTime 
+	 */
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
 	}
 }
 	

@@ -6,13 +6,15 @@
 		<result property="classes" column="classes" />
 		<result property="style" column="style" />
 		<result property="text" column="text" />
+		<result property="createTime" column="create_time" />
 	</resultMap>
 
 	<sql id="greetingsColumns">
 		id,
 		classes,
 		style,
-		text
+		text,
+		create_time
 	</sql>
 
 	<select id="findById" parameterType="com.ssm.po.greet.GreetingsPO" resultMap="greetingsMap">
@@ -35,6 +37,9 @@
 			</if>
 			<if test="po.text != null">
 				and text = #{po.text}
+			</if>
+			<if test="po.createTime != null">
+				and create_time = #{po.createTime}
 			</if>
 		</where>
 		<choose>
@@ -64,6 +69,9 @@
 			<if test="po.text != null">
 				and text = #{po.text}
 			</if>
+			<if test="po.createTime != null">
+				and create_time = #{po.createTime}
+			</if>
 		</where>
 		<choose>
 			<!--<when test="page !=null and page.orderBy != null and page.orderBy != ''">
@@ -89,6 +97,9 @@
 			<if test="po.text != null">
 				and text = #{po.text}
 			</if>
+			<if test="po.createTime != null">
+				and create_time = #{po.createTime}
+			</if>
 		</where>
 		<choose>
 			<!--<when test="page !=null and page.orderBy != null and page.orderBy != ''">
@@ -106,11 +117,13 @@
 		INSERT INTO greetings(
 		classes,
 		style,
-		text
+		text,
+		create_time
 		) VALUES (
 		#{classes},
 		#{style},
-		#{text}
+		#{text},
+		#{createTime}
 		)
 		<selectKey keyProperty="id" resultType="java.lang.Integer">
 			select LAST_INSERT_ID()
@@ -128,6 +141,9 @@
 			</if>
 			<if test = "text != null">
 				text = #{text}
+			</if>
+			<if test = "createTime != null">
+				create_time = #{createTime}
 			</if>
 		</trim>
 		

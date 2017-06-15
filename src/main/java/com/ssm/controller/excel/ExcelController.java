@@ -17,6 +17,12 @@ import com.ssm.po.recipe.RecipeCountPO;
 import com.ssm.service.excel.ExcelService;
 import com.ssm.service.recipe.RecipeCountService;
 
+/**
+ * @Description: 文件处理类 
+ * @author harry.zhang
+ * @CreateDate:	2017年6月15日
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("/excel")
 public class ExcelController extends BaseSpringController {

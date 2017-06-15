@@ -16,6 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ssm.common.JsonResult;
 
+/**
+ * @Description: 自定义springMVC异常处理类 
+ * @author harry.zhang
+ * @CreateDate:	2017年6月15日
+ * @version 1.0
+ */
 public class WebExceptionHandler implements HandlerExceptionResolver {
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	private String errorPage = "error";

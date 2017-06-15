@@ -18,10 +18,11 @@ import org.apache.commons.lang3.StringUtils;
 import net.sf.json.JSONObject;
 
 /**
- * 苹果服务器验证util
- * @author harry.zhang 参考文献
- *         http://blog.csdn.net/u010246789/article/details/51281185
- *         https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ReceiptFields.html#//apple_ref/doc/uid/TP40010573-CH106-SW1
+ * @Description: 苹果服务器验证util
+ * @author harry.zhang
+ * CreateDate:	2017年6月15日
+ * @see 参考文献 http://blog.csdn.net/u010246789/article/details/51281185
+ *            https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ReceiptFields.html#//apple_ref/doc/uid/TP40010573-CH106-SW1
  */
 public class IOSVerifyUtil {
 

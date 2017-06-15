@@ -1,9 +1,9 @@
 package com.ssm.common.exception;
 
 /**
- * 
+ * @Description: 自定义业务异常处理类 
  * @author harry.zhang
- * @since 1.0
+ * @CreateDate:	2017年6月15日
  * @version 1.0
  */
 public class BusinessException extends RuntimeException {

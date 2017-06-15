@@ -4,6 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @Description: 实体基类 
+ * @author harry.zhang
+ * @CreateDate:	2017年6月15日
+ * @version 1.0
+ * @param <T>
+ */
 public interface BaseDAO<T> {
 	
 	public T findById(@Param("po") T po);

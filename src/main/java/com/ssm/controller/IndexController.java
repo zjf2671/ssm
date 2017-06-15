@@ -6,6 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ssm.common.BaseSpringController;
 
+/**
+ * @Description: index入口类 
+ * @author harry.zhang
+ * @CreateDate:	2017年6月15日
+ * @version 1.0
+ */
 @Controller
 public class IndexController extends BaseSpringController {
 	

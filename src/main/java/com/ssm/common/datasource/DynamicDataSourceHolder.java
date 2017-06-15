@@ -1,5 +1,10 @@
 package com.ssm.common.datasource;
 
+/**
+ * @Description: 数据源类型定义类
+ * @author harry.zhang
+ * CreateDate:	2017年6月15日
+ */
 public class DynamicDataSourceHolder {
 
     private static final ThreadLocal<DataSoureKey> dataSoureThreadLocal = new ThreadLocal<>();

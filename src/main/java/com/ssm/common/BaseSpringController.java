@@ -4,6 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * @Description: springMVC控制器基类 
+ * @author harry.zhang
+ * CreateDate:	2017年6月15日
+ */
 public class BaseSpringController {
 	public Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 

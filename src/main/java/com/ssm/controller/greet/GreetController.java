@@ -13,6 +13,12 @@ import com.ssm.common.JsonResult;
 import com.ssm.po.greet.GreetingsPO;
 import com.ssm.service.greet.GreetingsService;
 
+/**
+ * @Description: 祝福语处理类 
+ * @author harry.zhang
+ * @CreateDate:	2017年6月15日
+ * @version 1.0
+ */
 @Controller
 @RequestMapping("/greet")
 public class GreetController extends BaseSpringController {

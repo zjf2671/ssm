@@ -5,6 +5,11 @@ import java.lang.reflect.Method;
 import org.springframework.aop.MethodBeforeAdvice;
 import org.springframework.stereotype.Component;
 
+/**
+ * @Description: 数据源切换切面
+ * @author harry.zhang
+ * CreateDate:	2017年6月15日
+ */
 @Component("dataSourceAdvice")
 public class DynamicDataSourceAop implements MethodBeforeAdvice{
 	    

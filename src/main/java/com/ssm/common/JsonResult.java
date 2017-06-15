@@ -2,6 +2,12 @@ package com.ssm.common;
 
 import java.io.Serializable;
 
+/**
+ * @Description: controller层统一返回类型 
+ * @author harry.zhang
+ * CreateDate:	2017年6月15日
+ * @param <T>
+ */
 public class JsonResult<T> implements Serializable {
 	private static final long serialVersionUID = -1902455525299606460L;
 	private int code = 0;

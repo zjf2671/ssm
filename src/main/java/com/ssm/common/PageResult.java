@@ -5,6 +5,12 @@ import java.util.List;
 
 import com.ssm.common.orm.Pagination;
 
+/**
+ * @Description: 有关分页contrlller层返回类型 
+ * @author harry.zhang
+ * CreateDate:	2017年6月15日
+ * @param <T>
+ */
 public class PageResult<T> implements Serializable {
 
 	private static final long serialVersionUID = -5508893650738751862L;

@@ -38,7 +38,7 @@
 		<property name="testOnReturn" value="false" />
 		<property name="connectionInitSqls" value="set names utf8mb4;"/>
 		<!-- 配置监控统计拦截的filters -->
-	    <property name="filters" value="config" />
+	    <property name="filters" value="stat,DruidWebStatFilter" />
 		<property name="connectionProperties" value="config.decrypt=false" />
 	</bean>
 	

@@ -18,7 +18,7 @@ public class GreetTest {
 	
 	@Test
 	public void findListTest(){
-		System.out.println(greetingsService.findList().get(0).getText());
+		System.out.println(greetingsService.findList(new GreetingsPO()).get(0).getText());
 	}
 	
 	@Test

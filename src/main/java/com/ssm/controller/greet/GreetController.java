@@ -21,17 +21,17 @@ public class GreetController extends BaseSpringController {
 	private GreetingsService greetingsService;
 	
 	@RequestMapping("/greetList")
-	public String findGreetList(Model model){
-		List<GreetingsPO> greetings = greetingsService.findList();
+	public String findGreetList(Model model,GreetingsPO po){
+		List<GreetingsPO> greetings = greetingsService.findList(po);
 		model.addAttribute("greetings", greetings);
 		return "greet/greets";
 	}
 	
 	@RequestMapping("/greetAllList")
 	@ResponseBody
-	public JsonResult<List<GreetingsPO>> findGreetList(){
+	public JsonResult<List<GreetingsPO>> findGreetList(GreetingsPO po){
 		JsonResult<List<GreetingsPO>> result = new JsonResult<List<GreetingsPO>>();
-		result.setData(greetingsService.findList());
+		result.setData(greetingsService.findList(po));
 		return result;
 	}
 	

@@ -6,7 +6,7 @@ import com.ssm.po.greet.GreetingsPO;
 
 public interface GreetingsService {
 	
-	public List<GreetingsPO> findList();
+	public List<GreetingsPO> findList(GreetingsPO po);
 
 	public GreetingsPO insert(GreetingsPO greetingsPO);
 

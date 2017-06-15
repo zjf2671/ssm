@@ -5,6 +5,9 @@
  * 小型婚礼
  */
 $(function(){
+	//首先加载所有祝福数据
+	loadAllGreetList();
+	
     var $firstHorn = $(".first-horn"), /* 场景一左边喇叭 */
         $firstTxt = $(".first-txt"), /* 场景一文字div */
         firstTxtWidth = $firstTxt.width(), /* 文字div的宽度 */
@@ -136,7 +139,6 @@ $(function(){
         $sevenContent = $(".seven-content");
 
     function scene7(){
-    	loadGreetList();
         $sixBox.hide();
         $sevenBox.fadeIn(1000);
         $sevenDiv.each(function(){
@@ -149,40 +151,9 @@ $(function(){
             $own.animate({left: _obj.left+"px",top: _obj.top+"px"}); /* 随机排布 */
         }
 
-        /* 定义随机left，top和旋转值 */
-        function defineRandom(){
-            var randomLeft = Math.floor(680*(Math.random())) + 30, /* 图片left值 */
-                randomTop =  Math.floor(400*Math.random()) + 30, /* 图片top值 */
-                randomRotate = 20 - Math.floor(40*Math.random()); /* 图片旋转角度 */
-            return {
-                left: randomLeft,
-                top: randomTop,
-                rotate:randomRotate
-            }
-        }
 
         /* 拖动祝福卡片 */
         draggableNote();
-        /* 拖动图片 */
-        function draggableNote(){
-            $(".seven-content div").draggable({
-                containment: $sevenContent,
-                zIndex: 2700,
-                start: function(){
-                    $(this).css({"transform":"rotate(0deg)","cursor": "crosshair"}); /* 开始拖动图片旋转为0，鼠标样式改变 */
-                },
-                stop: function(){
-                    var _obj = defineRandom();
-                    $(this).css({"transform":"rotate("+_obj.rotate+"deg)","cursor": "pointer"}); /* 停止拖动，旋转为随机的 */
-                    var id = $(this).attr('id');
-                    var classes = $(this).attr('class');
-                    var style =$(this).attr('style');
-                    var text =$(this).text();
-                    var $own = $(this);
-                    sendGreet($own, id,classes,style,text);
-                }
-            })
-        }
 
         /* 点我送祝福 */
         $clickMe.click(function(){
@@ -233,56 +204,87 @@ $(function(){
             }
         })
         
-        /* 加载数据 */
-        function loadGreetList(){
-        	var url = "greet/greetAllList.do";
-        	$.ajax({
-                url: url,
-                type:"post",
-                dataType:"json",
-                success:function(msg){
-                    if(msg.code == 0) {
-                        //location.reload();
-                    	$("#greetlist").html('');
-                    	$.each(msg.data, function(i,item){  
-                    	 	$("#greetlist").html($("#greetlist").html() +"<div id='"+item.id+"' class='"+item.classes+"' style='"+item.style+"'>"+item.text+"</div>");  
-                    	});
-                    }
-                },error:function(){
-                    alert("网络故障,请稍后重试");
-                }
-           });
+    }
+    
+    /* 拖动图片 */
+    function draggableNote(){
+        $(".seven-content div").draggable({
+            containment: $sevenContent,
+            zIndex: 2700,
+            start: function(){
+                $(this).css({"transform":"rotate(0deg)","cursor": "crosshair"}); /* 开始拖动图片旋转为0，鼠标样式改变 */
+            },
+            stop: function(){
+                var _obj = defineRandom();
+                $(this).css({"transform":"rotate("+_obj.rotate+"deg)","cursor": "pointer"}); /* 停止拖动，旋转为随机的 */
+                var id = $(this).attr('id');
+                var classes = $(this).attr('class');
+                var style =$(this).attr('style');
+                var text =$(this).text();
+                var $own = $(this);
+                sendGreet($own, id,classes,style,text);
+            }
+        })
+    }
+    
+    /* 定义随机left，top和旋转值 */
+    function defineRandom(){
+        var randomLeft = Math.floor(680*(Math.random())) + 30, /* 图片left值 */
+            randomTop =  Math.floor(400*Math.random()) + 30, /* 图片top值 */
+            randomRotate = 20 - Math.floor(40*Math.random()); /* 图片旋转角度 */
+        return {
+            left: randomLeft,
+            top: randomTop,
+            rotate:randomRotate
         }
-        
-        //重复执行loadGreetList方法 
-        var t1 = window.setInterval(loadGreetList,1000); 
-        
-        
-        function sendGreet($own,id,classes,style,text){
-        	var url = "greet/update.do?id="+id+"&classes="+classes+"&style="+style+"&text="+text;
-        	if(id == null){
-        		url = "greet/save.do?classes="+classes+"&style="+style+"&text="+text;
-        	}
-        	$.ajax({
-                url: url,
-                type:"post",
-                dataType:"json",
-                success:function(msg){
-                    if(msg.code == 0) {
-                        //location.reload();
-                    	$own.attr("id",msg.data.id);
-                    }
-                },error:function(){
-                    //zrkj.alert("网络故障,删除失败!");
-                }
-           });
-        	
-        }
-
-
     }
 
+    /* 加载数据 */
+    function loadAllGreetList(){
+    	var url = "greet/greetAllList.do";
+    	$.ajax({
+            url: url,
+            type:"post",
+            dataType:"json",
+            success:function(msg){
+                if(msg.code == 0) {
+                    //location.reload();
+                	$("#greetlist").html('');
+                	$.each(msg.data, function(i,item){  
+                	 	$("#greetlist").html($("#greetlist").html() +"<div id='"+item.id+"' class='"+item.classes+"' style='"+item.style+"'>"+item.text+"</div>");  
+                	});
+                	draggableNote();//赋予拖动功能
+                }
+            },error:function(){
+                alert("网络故障,请稍后重试");
+            }
+       });
+    }
+    
 
-
+    //重复执行loadGreetList方法 
+    var t1 = window.setInterval(loadAllGreetList,2000); 
+    
+    function sendGreet($own,id,classes,style,text){
+    	var url = "greet/update.do?id="+id+"&classes="+classes+"&style="+style+"&text="+text;
+    	if(id == null){
+    		url = "greet/save.do?classes="+classes+"&style="+style+"&text="+text;
+    	}
+    	$.ajax({
+            url: url,
+            type:"post",
+            dataType:"json",
+            success:function(msg){
+                if(msg.code == 0) {
+                    //location.reload();
+                	$own.attr("id",msg.data.id);
+                }
+            },error:function(){
+                //zrkj.alert("网络故障,删除失败!");
+            }
+       });
+    	
+    }
+    
 
 })

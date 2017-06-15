@@ -7,6 +7,7 @@
 		<result property="style" column="style" />
 		<result property="text" column="text" />
 		<result property="createTime" column="create_time" />
+		<result property="updateTime" column="update_time" />
 	</resultMap>
 
 	<sql id="greetingsColumns">
@@ -14,7 +15,8 @@
 		classes,
 		style,
 		text,
-		create_time
+		create_time,
+		update_time
 	</sql>
 
 	<select id="findById" parameterType="com.ssm.po.greet.GreetingsPO" resultMap="greetingsMap">
@@ -40,6 +42,9 @@
 			</if>
 			<if test="po.createTime != null">
 				and create_time = #{po.createTime}
+			</if>
+			<if test="po.updateTime != null">
+				and update_time = #{po.updateTime}
 			</if>
 		</where>
 		<choose>
@@ -72,6 +77,9 @@
 			<if test="po.createTime != null">
 				and create_time = #{po.createTime}
 			</if>
+			<if test="po.updateTime != null">
+				and update_time = #{po.updateTime}
+			</if>
 		</where>
 		<choose>
 			<!--<when test="page !=null and page.orderBy != null and page.orderBy != ''">
@@ -100,13 +108,16 @@
 			<if test="po.createTime != null">
 				and create_time = #{po.createTime}
 			</if>
+			<if test="po.updateTime != null">
+				and update_time = #{po.updateTime}
+			</if>
 		</where>
 		<choose>
 			<!--<when test="page !=null and page.orderBy != null and page.orderBy != ''">
 				ORDER BY ${page.orderBy}
 			</when>-->
 			<otherwise>
-				ORDER BY id desc
+				ORDER BY id ASC
 			</otherwise>
 		</choose>
 	</select>
@@ -118,12 +129,14 @@
 		classes,
 		style,
 		text,
-		create_time
+		create_time,
+		update_time
 		) VALUES (
 		#{classes},
 		#{style},
 		#{text},
-		#{createTime}
+		#{createTime},
+		#{updateTime}
 		)
 		<selectKey keyProperty="id" resultType="java.lang.Integer">
 			select LAST_INSERT_ID()
@@ -140,10 +153,13 @@
 				style = #{style},
 			</if>
 			<if test = "text != null">
-				text = #{text}
+				text = #{text},
 			</if>
 			<if test = "createTime != null">
-				create_time = #{createTime}
+				create_time = #{createTime},
+			</if>
+			<if test = "updateTime != null">
+				update_time = #{updateTime}
 			</if>
 		</trim>
 		

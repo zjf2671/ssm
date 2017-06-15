@@ -102,7 +102,7 @@ $(function(){
                 $own.animate({left: _obj.left+"px",top: _obj.top+"px"}); /* 随机排布 */
                 
                 var classes = $own.attr('class');
-                var style = "transform:rotate("+_obj.rotate+"deg);"+" left:"+_obj.left+"px;"+" top:"+ _obj.top+"px";
+                var style = "transform:rotate("+_obj.rotate+"deg);"+" left:"+_obj.left+"px;"+" top:"+ _obj.top+"px;";
                 
                 $popBox.animate({top: "-300px"},function(){
                     $mask.fadeOut();

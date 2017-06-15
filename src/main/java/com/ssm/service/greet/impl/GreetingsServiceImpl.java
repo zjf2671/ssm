@@ -17,20 +17,22 @@ public class GreetingsServiceImpl implements GreetingsService {
 	private GreetingsDAO greettingsDAO;
 
 	@Override
-	public List<GreetingsPO> findList() {
+	public List<GreetingsPO> findList(GreetingsPO po) {
 		
-		return greettingsDAO.findAll(new GreetingsPO());
+		return greettingsDAO.findAll(po);
 	}
 
 	@Override
 	public GreetingsPO insert(GreetingsPO greetingsPO) {
 		 greetingsPO.setCreateTime(new Date());
+		 greetingsPO.setUpdateTime(new Date());
 		 greettingsDAO.insert(greetingsPO);
 		 return greetingsPO;
 	}
 
 	@Override
 	public GreetingsPO update(GreetingsPO greetingsPO) {
+		greetingsPO.setUpdateTime(new Date());
 		greettingsDAO.update(greetingsPO);
 		return greetingsPO;
 	}

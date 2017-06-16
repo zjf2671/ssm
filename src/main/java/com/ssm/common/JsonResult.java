@@ -5,7 +5,8 @@ import java.io.Serializable;
 /**
  * @Description: controller层统一返回类型 
  * @author harry.zhang
- * CreateDate:	2017年6月15日
+ * @CreateDate:	2017年6月16日
+ * @version 1.0
  * @param <T>
  */
 public class JsonResult<T> implements Serializable {

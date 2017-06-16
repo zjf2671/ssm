@@ -20,9 +20,9 @@
     <context:component-scan base-package="com.*.service,com.*.dao,com.*.common"/>
 
     <!-- property-placeholder是一个属性遍历器，定位一个属性文件，属性文件存放的是jdbc一些连接数据 -->
-    <context:property-placeholder ignore-unresolvable="true"  location="classpath:jdbc.properties"/>
+    <context:property-placeholder ignore-unresolvable="true"  location="classpath:jdbc.properties,classpath:redis.properties"/>
+    
     <!--文件上传设置 -->
-
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize">

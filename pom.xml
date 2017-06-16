@@ -17,9 +17,14 @@
 		<httpclient.version>4.5.2</httpclient.version>
 		<mybatis.version>3.2.8</mybatis.version>
 		<mybatis-spring.version>1.2.2</mybatis-spring.version>
+		<spring-data-redis-version>1.7.2.RELEASE</spring-data-redis-version>
+		<jedis-version>2.8.1</jedis-version>
 
 		<!-- tools version setting -->
 		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<poi-version>3.14</poi-version>
+		<jackson-version>2.1.4</jackson-version>
+		<fastjson-version>1.2.33</fastjson-version>
 		
 	</properties>
 
@@ -93,9 +98,15 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-redis</artifactId>
-			<version>1.4.2.RELEASE</version>
+			<version>${spring-data-redis-version}</version>
 		</dependency>
-
+		
+        <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis-version}</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -212,15 +223,21 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-annotations</artifactId>
-			<version>2.1.4</version>
+			<version>${jackson-version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.1.4</version>
+			<version>${jackson-version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-version}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-core-asl</artifactId>
@@ -228,9 +245,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.1.4</version>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>fastjson</artifactId>
+		    <version>${fastjson-version}</version>
 		</dependency>
 
 		<dependency>
@@ -239,16 +256,16 @@
 			<version>1.9.13</version>
 		</dependency>
 
+		<!--  excel工具包-->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.14</version>
+			<version>${poi-version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.14</version>
+			<version>${poi-version}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->

@@ -39,17 +39,22 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-   
-       <!--  <mvc:interceptors> <mvc:interceptor>
-            <mvc:mapping path="/manager/**"/>
-            <bean class="com.caipu.interceptor.UserLoginInterceptor"/>
-        </mvc:interceptor>
+     <!-- 拦截器 配置-->
+      <!--  <mvc:interceptors> <mvc:interceptor>
+	            <mvc:mapping path="/manager/**"/>
+	           		<bean class="com.ssm.interceptor.UserLoginInterceptor"/>
+	            </mvc:interceptor>
 
-
-        <mvc:interceptor>
-            <mvc:mapping path="/server/**"/>
-            <bean class="com.caipu.interceptor.RequestLocaleInterceptor"/>
-        </mvc:interceptor></mvc:interceptors> -->
+				<mvc:interceptor>
+					<mvc:mapping path="/**" />
+					<bean class="com.ssm.user.common.interceptor.UserLoginInterceptor" />
+				</mvc:interceptor>
+		
+		       <mvc:interceptor>
+		           <mvc:mapping path="/server/**"/>
+		           <bean class="com.ssm.interceptor.RequestLocaleInterceptor"/>
+		       </mvc:interceptor>
+       </mvc:interceptors> -->
 
     
     
@@ -72,5 +77,9 @@
 			<ref bean="localeChangeInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors> -->
+	
+	<!--  配置页面同意返回异常-->
+	<bean id="webExceptionHandler" class="com.ssm.common.exception.WebExceptionHandler">
+	</bean>
     
 </beans>

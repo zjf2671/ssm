@@ -110,7 +110,7 @@ $(function(){
                 });
                 sendGreet($own,null,classes,style,_writeVal);
             }else{
-                alert("请输入祝福语！");
+                alert("赶紧输入祝福语！祝福他们吧！");
             }
         })
         

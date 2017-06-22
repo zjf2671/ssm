@@ -256,7 +256,7 @@ $(function(){
                 	draggableNote();//赋予拖动功能
                 }
             },error:function(){
-                alert("网络故障,请稍后重试");
+                //alert("网络故障,请稍后重试");
             }
        });
     }

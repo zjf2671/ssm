@@ -8,6 +8,7 @@
 		<result property="text" column="text" />
 		<result property="createTime" column="create_time" />
 		<result property="updateTime" column="update_time" />
+		<result property="name" column="name" />
 	</resultMap>
 
 	<sql id="greetingsColumns">
@@ -16,7 +17,8 @@
 		style,
 		text,
 		create_time,
-		update_time
+		update_time,
+		name
 	</sql>
 
 	<select id="findById" parameterType="com.ssm.po.greet.GreetingsPO" resultMap="greetingsMap">
@@ -46,6 +48,9 @@
 			<if test="po.updateTime != null">
 				and update_time = #{po.updateTime}
 			</if>
+			<if test="po.name != null">
+				and name = #{po.name}
+			</if>
 		</where>
 		<choose>
 			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
@@ -56,7 +61,7 @@
 			</otherwise>
 		</choose>
 		<if test="page != null">
-		limit #{page.limitStart},#{page.pageSize}
+			limit #{page.limitStart},#{page.pageSize}
 		</if>
 	</select>
 	
@@ -79,6 +84,9 @@
 			</if>
 			<if test="po.updateTime != null">
 				and update_time = #{po.updateTime}
+			</if>
+			<if test="po.name != null">
+				and name = #{po.name}
 			</if>
 		</where>
 		<choose>
@@ -111,6 +119,9 @@
 			<if test="po.updateTime != null">
 				and update_time = #{po.updateTime}
 			</if>
+			<if test="po.name != null">
+				and name = #{po.name}
+			</if>
 		</where>
 		<choose>
 			<!--<when test="page !=null and page.orderBy != null and page.orderBy != ''">
@@ -130,13 +141,15 @@
 		style,
 		text,
 		create_time,
-		update_time
+		update_time,
+		name
 		) VALUES (
 		#{classes},
 		#{style},
 		#{text},
 		#{createTime},
-		#{updateTime}
+		#{updateTime},
+		#{name}
 		)
 		<selectKey keyProperty="id" resultType="java.lang.Integer">
 			select LAST_INSERT_ID()
@@ -160,6 +173,9 @@
 			</if>
 			<if test = "updateTime != null">
 				update_time = #{updateTime}
+			</if>
+			<if test = "name != null">
+				name = #{name}
 			</if>
 		</trim>
 		

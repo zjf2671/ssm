@@ -15,7 +15,7 @@
 				<div class="seven-content">
 					<c:forEach items="${greetings }" var="greet" varStatus="status">
 						<div id="${greet.id}" class="${greet.classes}"
-							style="${greet.style}">${greet.text}</div>
+							style="${greet.style}"><c:if test="${greet.name ne null and greet.name ne ''}">${greet.name}:</p></c:if>${greet.text}</div>
 					</c:forEach>
 				</div>
 			</div>
@@ -24,6 +24,7 @@
         <div class="mask"></div>
         <div class="pop-box">
             <h1>送上祝福语</h1>
+            <input id="name" value="留下您的名字吧~" />
             <textarea id="write">写上您的祝福吧~</textarea>
             <div class="u-sure" id="uSure">确定</div>
         </div>

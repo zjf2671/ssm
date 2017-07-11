@@ -14,6 +14,7 @@ $(function(){
         $mask = $(".mask"),
         $popBox = $(".pop-box"),
         $write = $("#write"),
+        $name = $("#name"),
         $uSure = $("#uSure"),
         $sevenContent = $(".seven-content");
 
@@ -58,9 +59,9 @@ $(function(){
                     var id = $(this).attr('id');
                     var classes = $(this).attr('class');
                     var style =$(this).attr('style');
-                    var text =$(this).text();
+                    //var text =$(this).text();
                     var $own = $(this);
-                    sendGreet($own, id,classes,style,text);
+                    sendGreet($own, id,classes,style,null,null);
                 }
             })
         }
@@ -86,13 +87,29 @@ $(function(){
                 $(this).val("送上您的祝福吧~");
             }
         })
+        
+         /* 获取焦点时 */
+        $name.focus(function(){
+            var _val = $(this).val();
+            if(_val == "留下您的名字吧~"){
+                $(this).val("");
+            }
+        })
+        /* 丢失焦点时 */
+        $name.blur(function(){
+            var _val = $(this).val();
+            if(_val.length == 0){
+                $(this).val("留下您的名字吧~");
+            }
+        })
 
         /* 点击确定 */
         $uSure.click(function(){
             var _writeVal = $write.val();
+            var _name = $name.val();
             var _randomNum = Math.ceil(Math.random()*6);
-            if(_writeVal != "送上您的祝福吧~"){
-                var _div = '<div class="note-'+_randomNum+'">'+_writeVal+'</div>';
+            if(_writeVal != "送上您的祝福吧~" && _name!="留下您的名字吧~"){
+                var _div = '<div class="note-'+_randomNum+'">'+_name+':</p>'+_writeVal+'</div>';
                 $sevenContent.append(_div); /* 如果输入祝福语，将此标签添加的尾部 */
                 var $own = $sevenContent.find("div:last")
                 //defineSevenDiv($own);
@@ -108,17 +125,17 @@ $(function(){
                     $mask.fadeOut();
                     draggableNote(); /* 可拖动卡片，给新添加的标签赋予拖动功能 */
                 });
-                sendGreet($own,null,classes,style,_writeVal);
+                sendGreet($own,null,classes,style,_writeVal,_name);
             }else{
-                alert("赶紧输入祝福语！祝福他们吧！");
+                alert("赶紧留下名字和输入祝福语！祝福他们吧！");
             }
         })
         
         
-        function sendGreet($own,id,classes,style,text){
-        	var url = "update.do?id="+id+"&classes="+classes+"&style="+style+"&text="+text;
+        function sendGreet($own,id,classes,style,text,name){
+        	var url = "update.do?id="+id+"&classes="+classes+"&style="+style;//更新数据不传内容进去
         	if(id == null){
-        		url = "save.do?classes="+classes+"&style="+style+"&text="+text;
+        		url = "save.do?classes="+classes+"&style="+style+"&text="+text+"&name="+name;
         	}
         	$.ajax({
                 url: url,

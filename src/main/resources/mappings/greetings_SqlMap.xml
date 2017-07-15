@@ -172,7 +172,7 @@
 				create_time = #{createTime},
 			</if>
 			<if test = "updateTime != null">
-				update_time = #{updateTime}
+				update_time = #{updateTime},
 			</if>
 			<if test = "name != null">
 				name = #{name}

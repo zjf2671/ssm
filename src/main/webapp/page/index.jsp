@@ -91,6 +91,12 @@
                     <div id="${greet.id}" class="${greet.classes}" style="${greet.style}">${greet.text}</div>
                     </c:forEach> --%>
                 </div>
+                <div class="">
+					<img width="176" alt="请扫二维码送祝福" src="qrCode/genQrCode.do">
+				</div>
+				<div>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;扫二维码送祝福哦！！
+				</div>
             </div>
         </div>
 

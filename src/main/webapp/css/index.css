@@ -46,7 +46,8 @@
 
 /* 遮罩层 */
 .mask {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; opacity: 0.4; filter: Alpha(opacity=40); z-index: 9999; display: none;}
-.pop-box {position: fixed; top: -300px; left: 50%; margin-left: -250px; margin-top: -150px; width: 500px; height: 300px; padding: 10px; background: #c52947; border-radius: 10px; z-index: 99999;}
+.pop-box {position: fixed; top: -300px; left: 50%; margin-left: -250px; margin-top: -150px; width: 500px; height: 330px; padding: 10px; background: #c52947; border-radius: 10px; z-index: 99999;}
 .pop-box h1 {font-size: 30px; text-align: center; color: white; margin: 5px 0 10px;}
 .pop-box textarea {display: block; width: 440px; height: 140px; padding: 10px; margin: 20px auto; resize: none; font-size: 16px; border-radius: 5px; background: white; color: #691323;  _margin-left: 270px;}
+.pop-box input {display: block; width: 440px; height: 30px; padding: 10px; margin: 20px auto; resize: none; font-size: 16px; border-radius: 5px; background: white; color: #691323;  _margin-left: 270px;}
 .pop-box .u-sure {margin: auto; width: 100px; padding: 8px 0; background: #780a1f; border-radius: 3px; text-align: center; font-size: 18px; color: white; font-weight: bold; cursor: pointer;}

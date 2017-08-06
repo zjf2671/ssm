@@ -38,6 +38,12 @@ public class GreetingsPO implements Serializable {
 	 */
 	private Date updateTime;
 	
+	/**
+	 * 
+	 */
+	private String name;
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -121,6 +127,15 @@ public class GreetingsPO implements Serializable {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 }
 	

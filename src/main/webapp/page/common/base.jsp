@@ -20,6 +20,8 @@
 <script src="<%=basePath%>js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="<%=basePath%>js/jquery-ui-1.10.2.custom.js" type="text/javascript"></script>
 <link rel="stylesheet" href="<%=basePath%>css/index.css" />
+<script type="text/javascript" charset="utf-8" src="<%=basePath%>statics/ueditor1_4_3_3/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="<%=basePath%>statics/ueditor1_4_3_3/ueditor.all.min.js"> </script>
 <style type="text/css">
     body {
         font-family: "微软雅黑";

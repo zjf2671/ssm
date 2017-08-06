@@ -182,7 +182,7 @@ $(function(){
             var _writeVal = $write.val();
             var _randomNum = Math.ceil(Math.random()*6);
             if(_writeVal != "送上您的祝福吧~"){
-                var _div = '<div class="note-'+_randomNum+'">'+_writeVal+'</div>';
+                var _div = '<div class="note-'+_randomNum+'">'+_name+':</p>'+_writeVal+'</div>';
                 $sevenContent.append(_div); /* 如果输入祝福语，将此标签添加的尾部 */
                 var $own = $sevenContent.find("div:last")
                 //defineSevenDiv($own);
@@ -198,7 +198,7 @@ $(function(){
                     $mask.fadeOut();
                     draggableNote(); /* 可拖动卡片，给新添加的标签赋予拖动功能 */
                 });
-                sendGreet($own,null,classes,style,_writeVal);
+                sendGreet($own,null,classes,style,null,null);
             }else{
                 alert("请输入祝福语！");
             }
@@ -222,7 +222,7 @@ $(function(){
                 var style =$(this).attr('style');
                 var text =$(this).text();
                 var $own = $(this);
-                sendGreet($own, id,classes,style,text);
+                sendGreet($own, id,classes,style,null,null);
             }
         })
     }
@@ -251,7 +251,7 @@ $(function(){
                     //location.reload();
                 	$("#greetlist").html('');
                 	$.each(msg.data, function(i,item){  
-                	 	$("#greetlist").html($("#greetlist").html() +"<div id='"+item.id+"' class='"+item.classes+"' style='"+item.style+"'>"+item.text+"</div>");  
+                	 	$("#greetlist").html($("#greetlist").html() +"<div id='"+item.id+"' class='"+item.classes+"' style='"+item.style+"'>"+item.name+":</p>"+item.text+"</div>");  
                 	});
                 	draggableNote();//赋予拖动功能
                 }
@@ -265,10 +265,10 @@ $(function(){
     //重复执行loadGreetList方法 
     var t1 = window.setInterval(loadAllGreetList,2000); 
     
-    function sendGreet($own,id,classes,style,text){
-    	var url = "greet/update.do?id="+id+"&classes="+classes+"&style="+style+"&text="+text;
+    function sendGreet($own,id,classes,style,text,name){
+    	var url = "greet/update.do?id="+id+"&classes="+classes+"&style="+style;
     	if(id == null){
-    		url = "greet/save.do?classes="+classes+"&style="+style+"&text="+text;
+    		url = "greet/save.do?classes="+classes+"&style="+style+"&text="+text+"&name="+name;
     	}
     	$.ajax({
             url: url,

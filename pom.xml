@@ -321,6 +321,14 @@
 			<artifactId>json</artifactId>
 			<version>20160212</version>
 		</dependency>
+		
+		<!--rabbitmq依赖 -->  
+        <dependency>  
+            <groupId>org.springframework.amqp</groupId>  
+            <artifactId>spring-rabbit</artifactId>  
+            <version>1.4.6.RELEASE</version>  
+       </dependency>  
+		
 
 	</dependencies>
 

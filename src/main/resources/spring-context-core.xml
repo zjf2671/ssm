@@ -43,6 +43,7 @@
 	<aop:config proxy-target-class="true">
 		<aop:advisor advice-ref="druid-stat-interceptor" pointcut-ref="druid-stat-pointcut" />
 	</aop:config>
-
+	
+	<import resource="classpath*:rabbitmq.xml" />
     
 </beans>

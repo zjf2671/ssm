@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ssm.common.BaseSpringController;
 import com.ssm.common.JsonResult;
+import com.ssm.common.log.SystemControllerLog;
 import com.ssm.po.greet.GreetingsPO;
 import com.ssm.service.greet.GreetingsService;
 
@@ -27,6 +28,7 @@ public class GreetController extends BaseSpringController {
 	private GreetingsService greetingsService;
 	
 	@RequestMapping("/greetList")
+	@SystemControllerLog
 	public String findGreetList(Model model,GreetingsPO po){
 		List<GreetingsPO> greetings = greetingsService.findList(po);
 		model.addAttribute("greetings", greetings);
@@ -35,6 +37,7 @@ public class GreetController extends BaseSpringController {
 	
 	@RequestMapping("/greetAllList")
 	@ResponseBody
+	@SystemControllerLog
 	public JsonResult<List<GreetingsPO>> findGreetList(GreetingsPO po){
 		JsonResult<List<GreetingsPO>> result = new JsonResult<List<GreetingsPO>>();
 		result.setData(greetingsService.findList(po));
@@ -44,6 +47,7 @@ public class GreetController extends BaseSpringController {
 	
 	@RequestMapping("/save")
 	@ResponseBody
+	@SystemControllerLog
 	public JsonResult<GreetingsPO> save(GreetingsPO greetingsPO){
 		JsonResult<GreetingsPO> result = new JsonResult<GreetingsPO>();
 		greetingsService.insert(greetingsPO);
@@ -53,6 +57,7 @@ public class GreetController extends BaseSpringController {
 	
 	@RequestMapping("/update")
 	@ResponseBody
+	@SystemControllerLog
 	public JsonResult<GreetingsPO> update(GreetingsPO greetingsPO){
 		JsonResult<GreetingsPO> result = new JsonResult<GreetingsPO>();
 		greetingsService.update(greetingsPO);

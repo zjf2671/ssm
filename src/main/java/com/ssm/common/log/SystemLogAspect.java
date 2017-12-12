@@ -32,7 +32,7 @@ public class SystemLogAspect {
 	// 本地异常日志记录对象
 	private Logger logger = Logger.getLogger(SystemLogAspect.class);// Controller层切点
 
-	@Pointcut("@annotation(com.rong.code.common.log.SystemControllerLog)")
+	@Pointcut("@annotation(com.ssm.common.log.SystemControllerLog)")
 	public void controllerAspect() {
 	}
 

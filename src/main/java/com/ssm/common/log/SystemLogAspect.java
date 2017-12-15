@@ -83,7 +83,7 @@ public class SystemLogAspect {
 			message.put("class", joinPoint.getTarget().getClass().getName());
 			message.put("request_method", joinPoint.getSignature().getName());
 			message.put("ip", ip);
-			message.put("systemName", "wechatecom");
+			message.put("systemName", "ssm");
 			logger.fatal(message.toString());
 
 			return joinPoint.proceed();

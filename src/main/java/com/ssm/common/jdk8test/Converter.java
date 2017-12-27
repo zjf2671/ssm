@@ -8,7 +8,16 @@ package com.ssm.common.jdk8test;
  * @param <F>
  * @param <T>
  */
-@FunctionalInterface
 interface Converter<F, T> {
     T convert(F from);
+    default void say(){
+        System.out.println("default say");
+
+
+    }
+    default void say2(){
+        System.out.println("default say2");
+
+
+    }
 }

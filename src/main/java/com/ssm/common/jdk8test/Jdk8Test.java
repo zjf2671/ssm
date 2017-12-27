@@ -28,10 +28,8 @@ public class Jdk8Test {
 		Collections.sort(names, (a,b) -> 
 			 b.compareTo(a)
 		);
-
-		for (String name : names) {
-			System.out.println(name);
-		}
+		//使用lambda表达式后的写法
+		names.forEach(str -> System.out.println(str));
 		
 		
 		Converter<String, Integer> converter = (from) -> Integer.valueOf(from);
